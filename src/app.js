@@ -206,8 +206,9 @@ export default {
         root.style.setProperty('--leleo-blur', `${this.configdata.blur}px`);
       }
   
-      let leleodatabackground = this.getCookie("leleodatabackground");
-      const { xs } = useDisplay();
+  let leleodatabackground = this.getCookie("leleodatabackground");
+  // use the xs ref provided by setup() instead of calling useDisplay() here
+  const xs = this.xs || { value: false };
       if(leleodatabackground){
         if(xs.value){
           if(leleodatabackground.mobile.type == "pic"){
