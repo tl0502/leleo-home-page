@@ -50,13 +50,9 @@
 					</v-text-field>
             	<typewriter class="ma-3 d-flex align-center justify-center" style="min-height: 200px;"></typewriter>
             </v-col>
-            <v-col cols="12" md="4" align="center">
-              <v-card class="ma-3" hover
-                >
-                  <template v-slot:title >
-                    <span class="leleo-card-title clock-font">{{formattedTime}}</span>
-                  </template>
-                  <template v-slot:subtitle>
+						<v-col cols="12" md="4" align="center">
+							<v-card class="ma-3" hover>
+									<template v-slot:subtitle>
                     <span style="font-weight: bold;">{{formattedDate}}</span>
                   </template>
                   <turntable :color1="configdata.color.turntablecolor1" :color2="configdata.color.turntablecolor2" />
@@ -64,9 +60,13 @@
             </v-col>
           </v-row>
           
-          <v-chip class="mt-3 ml-3" prepend-icon="mdi-webhook"  size="large" style="color: var(--leleo-vcard-color);">
-            部署项目
-          </v-chip>
+				<v-chip class="mt-3 ml-3" prepend-icon="mdi-webhook"  size="large" style="color: var(--leleo-vcard-color);">
+						部署项目
+					</v-chip>
+					<v-btn class="mt-3 ml-3" variant="tonal" color="var(--leleo-vcard-color)" @click="videoDialog = true">
+						<v-icon left>mdi-video</v-icon>
+						视频中心
+					</v-btn>
           <v-container>
             <v-row>
               <v-col
@@ -115,21 +115,40 @@
           </v-container>
           
         </div>       
-      </div>
+				<!-- 视频列表对话框 -->
+				<v-dialog v-model="videoDialog" width="800">
+					<video-list :videos="videos" @select="onSelect"></video-list>
+				</v-dialog>
+
+				<!-- 视频播放器对话框 -->
+				<v-dialog v-model="playerDialog" width="900">
+					<video-player :videos="videos" :currentIndex="currentVideoIndex" @change="onChange" @close="playerDialog=false"></video-player>
+				</v-dialog>
+				</div>
 </template> 
 
 <script>
 import typewriter from '../components/typewriter.vue';
 import turntable from '../components/turntable.vue';
+import VideoList from '../components/videoList.vue';
+import VideoPlayer from '../components/videoPlayer.vue';
 import { useDisplay } from 'vuetify'
 
 export default {
-    components: {
-        typewriter,turntable
-    },
+	components: {
+		typewriter,turntable,VideoList,VideoPlayer
+	},
     props: ['configdata','formattedTime','formattedDate','projectcards'],
 	data() {
 		return {
+			// 视频弹窗相关
+			videoDialog: false,
+			playerDialog: false,
+			videos: [
+				{ title: '示例视频 1', desc: '演示视频', thumb: '/videos/thumb1.jpg', src: '/videos/video1.mp4' },
+				{ title: '示例视频 2', desc: '另一个演示', thumb: '/videos/thumb2.jpg', src: '/videos/video2.mp4' }
+			],
+			currentVideoIndex: 0,
 			searchQuery: '',
 			selectedEngine: { title: 'Bing', value: 'bing' },
       		searchEngines :[
@@ -200,6 +219,19 @@ export default {
 			domainPattern.test(str) || 
 			localPattern.test(str)
 		);
+		}
+		,
+		// 视频相关方法
+		openPlayer(idx){
+			this.currentVideoIndex = idx;
+			this.videoDialog = false;
+			this.playerDialog = true;
+		},
+		onSelect(idx){
+			this.openPlayer(idx);
+		},
+		onChange(idx){
+			this.currentVideoIndex = idx;
 		}
     }
 };
