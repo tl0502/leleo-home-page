@@ -140,26 +140,17 @@ export default {
 	},
     props: ['configdata','formattedTime','formattedDate','projectcards'],
 	data() {
-		return {
-			// 视频弹窗相关
-			videoDialog: false,
-			playerDialog: false,
-			videos: [
-				{ title: '示例视频 1', desc: '演示视频', thumb: './videos/thumb1.jpg', src: './videos/video1.mp4' },
-				{ title: '示例视频 2', desc: '另一个演示', thumb: './videos/thumb2.jpg', src: './videos/video2.mp4' }
-			],
-			currentVideoIndex: 0,
-			searchQuery: '',
-			selectedEngine: { title: 'Bing', value: 'bing' },
-      		searchEngines :[
-				{ title: 'Bing', value: 'bing' },
-				{ title: 'Google', value: 'google' },
-				{ title: '百度', value: 'baidu' },
-				{ title: 'Yandex', value: 'yandex' },
-				{ title: 'DuckDuckGo', value: 'duckduckgo' },
-			]
-		}
-	},
+	return {
+		videoDialog: false,
+		playerDialog: false,
+		videos: [
+			{ title: '示例视频 1', desc: '演示视频', thumb: '/videos/thumb1.jpg', src: '/videos/video1.mp4' },
+			{ title: '示例视频 2', desc: '另一个演示', thumb: '/videos/thumb2.jpg', src: '/videos/video2.mp4' }
+		],
+		currentVideoIndex: 0,
+		searchQuery: '',
+	}
+},
     setup() {
       const { xs,sm,md } = useDisplay();
       return {xs,sm,md};
