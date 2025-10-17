@@ -145,8 +145,8 @@ export default {
 			videoDialog: false,
 			playerDialog: false,
 			videos: [
-				{ title: '示例视频 1', desc: '演示视频', thumb: '/videos/thumb1.jpg', src: '<video src="./videos/video1.mp4" controls></video>' },
-				{ title: '示例视频 2', desc: '另一个演示', thumb: '/videos/thumb2.jpg', src: '<video src="./videos/video2.mp4" controls></video>' }
+				{ title: '示例视频 1', desc: '演示视频', thumb: './videos/thumb1.jpg', src: './videos/video1.mp4' },
+				{ title: '示例视频 2', desc: '另一个演示', thumb: './videos/thumb2.jpg', src: './videos/video2.mp4' }
 			],
 			currentVideoIndex: 0,
 			searchQuery: '',
