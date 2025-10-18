@@ -53,7 +53,7 @@ const config = {
 
 	//社交按钮
 	socialPlatformIcons: [
-		{ icon: "mdi-github", link: "https://www.github.com/leleo886" },
+		{ icon: "mdi-github", link: "https://github.com/tl0502/leleo-home-page" },
 		{ icon: "mdi-email", link: "mailto:leleo886@foxmail.com" },
 		{ icon: "mdi-qqchat", link: "https://im.qq.com/" },
 		{ icon: "mdi-wechat", link: "https://wx.qq.com/" },
@@ -63,17 +63,17 @@ const config = {
 
 	//打字机
 	typeWriterStrings: [
-		"如果你看到了这行字，说明我已经成功吸引到了你的注意力。",
-		"顶峰的少年，给了你所有细节，你却说我不是迪迦，给不了你想要的光。",
-		"心简单，世界就简单，幸福才会生长；心自由，生活就自由，到哪都有快乐。",
-		"生命太短，没有时间留给遗憾，若不是终点，请微笑一直向前。"
+		"🐈哈基米莫南北绿豆🐈",
+		"你会哈气嘛你，哈！🐈‍⬛",
+		"欧玛吉里，曼波。",
+		"少年，不要停止向生活哈气💢"
 	],
 
 	//音乐播放配置，采用MetingJS Api(https://github.com/metowolf/MetingJS)
 	musicPlayer: {
 		server: 'netease',  //服务提供商 --网易云音乐
 		type: 'playlist',   //歌单类型
-		id: '2028178887'  //歌单id ---> music.163.com/#/playlist?id=2028178887
+		id: '14437136766'  //歌单id ---> music.163.com/#/playlist?id=14437136766
 	},
 
 	//壁纸数据 -----可以将壁纸文件上传到图床获取网络直链。若想调用api，请前往脚本自行修改逻辑
