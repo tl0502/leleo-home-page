@@ -8,7 +8,7 @@ const config = {
     icon: '/favicon.ico'   //网页图标，支持外链
   },
 
-  avatar: "/img/avatar.jpg", // 头像
+  avatar: "/img/avatar1.jpg", // 头像
   welcometitle: "Hi, I'm Leleo", // 标题
 
   // 颜色配置
